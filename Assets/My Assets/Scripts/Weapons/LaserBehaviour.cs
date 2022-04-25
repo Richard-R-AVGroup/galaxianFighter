@@ -13,7 +13,8 @@ public class LaserBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        movement();
+        if(Time.timeScale != 0)
+            movement();
 	}
 
     void movement()

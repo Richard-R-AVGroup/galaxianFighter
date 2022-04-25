@@ -71,7 +71,7 @@ public class PlayerBehaviour : MonoBehaviour {
         }
 
         //Shooting
-        if (Input.GetKeyDown(KeyCode.Space) && timer >= 1.0f)
+        if (Input.GetKey(KeyCode.Space) && timer >= 1.0f)
         {
             timer = 0;
             Instantiate(Bullet1, gun1.transform.position, gun1.transform.rotation);

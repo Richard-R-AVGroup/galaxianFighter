@@ -33,7 +33,6 @@ public class EnemyFighterBehaviour : MonoBehaviour {
         
     }
 	
-
     void Update()
     {
         if (target)
@@ -78,6 +77,7 @@ public class EnemyFighterBehaviour : MonoBehaviour {
             Destroy(c.gameObject);
         }
     }
+
     //All Movement Stuff
     void movement()
     {
@@ -94,6 +94,7 @@ public class EnemyFighterBehaviour : MonoBehaviour {
 
         rb.AddForce(forDir * thrust * Time.deltaTime);
     }
+
     //All Shooting Stuff
     void shooting()
     {
@@ -111,23 +112,26 @@ public class EnemyFighterBehaviour : MonoBehaviour {
 
     void findTarget()
     {
-        GameObject[] gos;
-
-        gos = GameObject.Find("GameArrays").GetComponent<GameArrays>().allyArray;
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        foreach (GameObject go in gos)
+        if (!tut)
         {
-            if (go)
+            GameObject[] gos;
+
+            gos = GameObject.Find("GameArrays").GetComponent<GameArrays>().allyArray;
+            GameObject closest = null;
+            float distance = Mathf.Infinity;
+            foreach (GameObject go in gos)
             {
-                Vector3 diff = go.transform.position - transform.position;
-                float dist = diff.sqrMagnitude;
-                if (dist < distance)
+                if (go)
                 {
-                    closest = go;
-                    distance = dist;
+                    Vector3 diff = go.transform.position - transform.position;
+                    float dist = diff.sqrMagnitude;
+                    if (dist < distance)
+                    {
+                        closest = go;
+                        distance = dist;
+                    }
+                    target = closest;
                 }
-                target = closest;
             }
         }
     }

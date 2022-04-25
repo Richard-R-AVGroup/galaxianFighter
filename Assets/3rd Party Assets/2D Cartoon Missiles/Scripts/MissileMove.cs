@@ -5,7 +5,7 @@ public class MissileMove : MonoBehaviour
 {
     void Start()
     {
-        transform.GetChild(0).GetComponent<ParticleEmitter>().emit = true;
+        //transform.GetChild(0).GetComponent<ParticleSystem>().emit = true;
     }
 
     void FixedUpdate()
