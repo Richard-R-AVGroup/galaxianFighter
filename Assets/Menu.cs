@@ -19,6 +19,11 @@ public class Menu : MonoBehaviour
         this.transform.position = offPos;
     }
 
+    private void Update()
+    {
+        
+    }
+
     //Getters
     public Vector2 getStartPos()
     {
@@ -35,15 +40,20 @@ public class Menu : MonoBehaviour
         return active;
     }
 
+    public Transform GetTransform()
+    {
+        return this.transform;
+    }
+
     //Setters
     public void setStartPos(Vector2 pos)
     {
-        this.startPos = pos;
+        this.startPos = GetComponentInParent<Transform>().position;
     }
 
     public void setOffPos(Vector2 pos)
     {
-        this.offPos = pos + new Vector2(0, 6);
+        this.offPos = GetTransform().position + new Vector3(0, 6, 0);
     }
 
     public void setActive(bool active)
@@ -54,9 +64,10 @@ public class Menu : MonoBehaviour
     public void changeLocation(bool active)
     {
         if (!active)
-            this.transform.position = Vector2.Lerp(getStartPos(), getOffPos(), 0.001f);
+            this.transform.position = Vector2.Lerp(getStartPos(), getOffPos(), 0.01f * Time.deltaTime);
         else
-            this.transform.position = Vector2.Lerp(getOffPos(), getStartPos(), 0.001f);
+            this.transform.position = Vector2.Lerp(getOffPos(), getStartPos(), 0.01f * Time.deltaTime);
     }
+
 
 }

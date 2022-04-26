@@ -63,12 +63,16 @@ public class PlayerBehaviour : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * ((this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude / 100) + turnSpeed * Time.deltaTime));
+            transform.Rotate(Vector3.forward * ((-this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude / 10) + turnSpeed * Time.deltaTime));
+            Debug.Log("Turning Speed: " + ((-this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude / 10) + turnSpeed * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * ((this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude / 100) + turnSpeed * Time.deltaTime));
+            transform.Rotate(-Vector3.forward * ((-this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude / 10) + turnSpeed * Time.deltaTime));
+            Debug.Log("Turning Speed: " + ((-this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude / 10) + turnSpeed * Time.deltaTime));
         }
+
+        
 
         //Shooting
         if (Input.GetKey(KeyCode.Space) && timer >= 1.0f)
