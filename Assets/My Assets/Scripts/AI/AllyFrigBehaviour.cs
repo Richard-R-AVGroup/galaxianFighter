@@ -37,7 +37,7 @@ public class AllyFrigBehaviour : MonoBehaviour {
 
     //Behaviour
     private bool attack;
-    private bool flee;
+    //private bool flee;            //TODO
     private bool rearrange;
 
     // Use this for initialization
@@ -48,7 +48,7 @@ public class AllyFrigBehaviour : MonoBehaviour {
         turnSpeed = 30f;
         skill = Random.Range(0.0f, 4f);
         attack = true;
-        flee = false;
+        //flee = false;                         //TODO
         rearrange = false;
         trackingspeed = 30f;
         findMoveTarget();
@@ -180,7 +180,7 @@ public class AllyFrigBehaviour : MonoBehaviour {
         if (health <= 10 && attack == true)
         {
             attack = false;
-            flee = true;
+            //flee = true;                      //TODO
         }
     }
 

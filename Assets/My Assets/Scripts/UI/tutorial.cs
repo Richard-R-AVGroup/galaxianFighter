@@ -6,7 +6,7 @@ public class tutorial : MonoBehaviour {
 
     public Text objText;
     private int tutStage;
-    private int multObj;
+    //private int multObj;
     private bool firstKey;
     private bool secKey;
     private bool clear;
@@ -18,7 +18,7 @@ public class tutorial : MonoBehaviour {
         tutStage = 0;
         firstKey = false;
         secKey = false;
-        multObj = 0;
+        //multObj = 0;
         clear = true;
 	}
 
