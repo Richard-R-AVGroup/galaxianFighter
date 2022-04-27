@@ -6,21 +6,19 @@ public class Menu : MonoBehaviour
 {
 
     private Vector2 startPos;
+    private Vector2 onPos;
     private Vector2 offPos;
     private bool active;
 
     // Start is called before the first frame update
     void Start()
     {
-        setActive(false);
-        setStartPos(transform.position);
-        setOffPos(transform.position);
-        changeLocation(false);
-        this.transform.position = offPos;
+        
     }
 
     private void Update()
     {
+        
         
     }
 
@@ -45,15 +43,14 @@ public class Menu : MonoBehaviour
         return this.transform;
     }
 
-    //Setters
-    public void setStartPos(Vector2 pos)
+    public void setOffPos()
     {
-        this.startPos = GetComponentInParent<Transform>().position;
+        this.offPos = GetComponentInParent<Transform>().position + new Vector3(0, 6, 0);
     }
 
-    public void setOffPos(Vector2 pos)
+    public void setOnPos()
     {
-        this.offPos = GetTransform().position + new Vector3(0, 6, 0);
+        this.onPos = GetComponentInParent<Transform>().position;
     }
 
     public void setActive(bool active)
@@ -61,6 +58,7 @@ public class Menu : MonoBehaviour
         this.active = active;
     }
 
+    //
     public void changeLocation(bool active)
     {
         if (!active)

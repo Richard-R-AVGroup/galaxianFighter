@@ -41,13 +41,25 @@ public class gameManager : MonoBehaviour
     {
         if (!paused)
         {
-            GameObject.Find("PauseMenu").GetComponent<Menu>().changeLocation(true);
-            Time.timeScale = 1;
+            unpauseGame();
         }
         else
         {
-            GameObject.Find("PauseMenu").GetComponent<Menu>().changeLocation(false);
-            Time.timeScale = 0;
+            pauseGame();
         }
+    }
+
+    public void pauseGame()
+    {
+        Time.timeScale = 0;
+        paused = true;
+        GameObject.Find("PauseMenu").GetComponent<Menu>().changeLocation(false);
+    }
+
+    public void unpauseGame()
+    {
+        Time.timeScale = 1;
+        paused = false;
+        
     }
 }
